@@ -67,7 +67,8 @@ public class ConfigurationCollector : MonoBehaviour {
 		// path: object positions (x,y, (z)) coordinates -- z should be fitted somehow
 
 		string json = JsonUtility.ToJson(config);
-		upload(json);
+		Debug.Log(json);
+		//upload(json);
 		//return config;
 	}
 

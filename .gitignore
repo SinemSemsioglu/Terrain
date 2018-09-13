@@ -1,3 +1,7 @@
-TerrainCustomizer/Library/*
-TerrainCustomizer/Temp/*
+*/Library/*
+*/Temp/*
 TerrainCustomizer/WebBuilds/*
+*.sln
+*.csproj
+TerrainViewerVR/Assets/SteamVR/*
+*/.vs/*
