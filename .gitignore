@@ -3,5 +3,4 @@
 TerrainCustomizer/WebBuilds/*
 *.sln
 *.csproj
-TerrainViewerVR/Assets/SteamVR/*
 */.vs/*
