@@ -177,6 +177,12 @@ namespace ProceduralToolkit.Examples
             return config;
         }
 
+        public void setConfig(LowPolyTerrainGenerator.Config _config) {
+            config = _config;
+            Debug.Log(config);
+        }
+
+
         public void Generate(bool randomizeConfig = true)
         {
             if (constantSeed)

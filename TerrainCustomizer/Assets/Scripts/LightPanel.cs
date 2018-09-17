@@ -418,9 +418,29 @@ namespace ProceduralToolkit.Examples
             return skyboxMat.GetFloat("_AtmosphereThickness");
         }
 
+        public void setAtmosphereThickness(float atmosphereThickness) {
+	        skyboxMat.SetFloat("_AtmosphereThickness", atmosphereThickness);
+        }
+
         public Vector3 getSeaColor() {
             Color c = seaMat.GetColor("_EmissionColor");
             return new Vector3(c.r, c.g, c.b);
+        }
+
+        public void setSeaColor(Vector3 seaColor) {
+            seaMat.SetColor("_EmissionColor", Color.HSVToRGB(seaColor.x, seaColor.y, seaColor.z));
+        }
+
+
+        public void setLightColors(Vector3[] lightHSV) {
+            if (lights.Length != lightHSV.Length) {
+                Debug.Log("light numbers do not match");
+            } else {
+                for (int i = 0; i <lights.Length; i++) {
+                    Vector3 col = lightHSV[i];
+                    lights[i].color = Color.HSVToRGB(col.x, col.y, col.z);
+                }
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Assertions;
 using ProceduralToolkit.Examples;
 using UnityEngine.Networking;
@@ -10,7 +11,9 @@ public class ConfigurationCollector : MonoBehaviour {
 	  [Serializable]
         public class ServerConfig
         {
-            public float cellSize;
+			public string terrainName;
+			public string terrainPass;
+            public int cellSize;
 			public float noiseScale;
 			public float atmosphereThickness;
 			public Vector3 seaColor;
@@ -24,6 +27,9 @@ public class ConfigurationCollector : MonoBehaviour {
 	public LightPanel lights;
 	public LightPlacer path;
 
+	public InputField nameField;
+	public InputField passField;
+
 	ServerConfig config = new ServerConfig();
 	
 	// Use this for initialization
@@ -36,7 +42,7 @@ public class ConfigurationCollector : MonoBehaviour {
 		
 	}
 
-	public void getConfig() {
+	public void uploadConfig() {
 		// Get from LowPolyTerrainGenerator - Config
 		LowPolyTerrainGenerator.Config terrainConfig = terrain.getConfig();
 		// terrain: cell size, noise scale
@@ -65,16 +71,30 @@ public class ConfigurationCollector : MonoBehaviour {
 
 		// Get from LightPlacer
 		// path: object positions (x,y, (z)) coordinates -- z should be fitted somehow
-
+		config.terrainName = nameField.text;
+		config.terrainPass = passField.text;
 		string json = JsonUtility.ToJson(config);
 		Debug.Log(json);
+		StartCoroutine(upload(json));
 		//upload(json);
 		//return config;
 	}
 
-	public void upload(string data) {
+	IEnumerator upload(string data) {
 		UnityWebRequest www = UnityWebRequest.Put("http://localhost:5000/uploadConfig", data);
 		www.SetRequestHeader("Content-Type", "application/json");
-		www.Send();
+		yield return www.Send();
+
+        if (www.isError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            Debug.Log("PUT successful!");
+
+            // Print Body
+            Debug.Log(www.downloadHandler.text);
+        }
 	}
 }

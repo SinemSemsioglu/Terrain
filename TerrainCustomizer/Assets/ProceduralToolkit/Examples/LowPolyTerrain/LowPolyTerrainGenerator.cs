@@ -14,10 +14,10 @@ namespace ProceduralToolkit.Examples
         [Serializable]
         public class Config
         {
-            public Vector3 terrainSize = new Vector3(200, 1, 200); // was 20 1 20
+            public Vector3 terrainSize = new Vector3(200, 30, 200); // was 20 1 20
             public int cellSize = 1;// was 1
             public float noiseScale = 5; // was 5
-            public Gradient gradient;
+            public Gradient gradient = new Gradient();
             public List<Vector3> path;
             public Vector3 offsets;
             public bool noiseArousalDirect = false;

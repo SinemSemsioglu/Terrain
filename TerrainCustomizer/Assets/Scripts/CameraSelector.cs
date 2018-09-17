@@ -30,6 +30,21 @@ public class CameraSelector : MonoBehaviour {
         return currentCamera;
     }
 
+    public void deselectAll() {
+        currentCamera = null;
+
+        staticTopCamera.enabled = false;
+        topCamera.enabled = false;
+        perspectiveCamera.enabled = false;
+        sideCamera.enabled = false;
+        vaOverlay.SetActive(false);
+
+        topRotator.SetActive(false);
+        sideRotator.SetActive(false);
+        perspectiveRotator.SetActive(false);
+    }
+
+
     public void selectPerspective()
     {
         currentCamera = perspectiveCamera;
