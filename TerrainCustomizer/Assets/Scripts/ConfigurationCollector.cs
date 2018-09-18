@@ -85,7 +85,7 @@ public class ConfigurationCollector : MonoBehaviour {
 		www.SetRequestHeader("Content-Type", "application/json");
 		yield return www.Send();
 
-        if (www.isError)
+        if (www.isNetworkError)
         {
             Debug.Log(www.error);
         }

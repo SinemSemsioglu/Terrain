@@ -1,26 +1,25 @@
 {
-    "name": "TerrainServer",
-    "main": "./index.js",
-    "version": "0.0.0",
-    "description": "A short description of your package",
-    "keywords": [],
-    "activationCommands": {
-      "atom-workspace": "my-package:toggle"
-    },
-    "repository": "",
-    "license": "MIT",
-    "engines": {
-      "atom": ">=1.0.0 <2.0.0"
-    },
-    "dependencies": {
-      "body-parser": "^1.15.2",
-      "express": "^4.14.0"
-    },
-    "scripts": {
-      "start": "node index.js"
-    },
-    "devDependencies": {
-      "cors": "^2.8.1"
-    }
+  "name": "TerrainServer",
+  "main": "./index.js",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [],
+  "activationCommands": {
+    "atom-workspace": "my-package:toggle"
+  },
+  "repository": "",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "cors": "^2.8.1"
   }
-  
+}

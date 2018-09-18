@@ -62,7 +62,6 @@ retrieveConfigWithoutPass = (terrainName, terrainPass) => {
 }
 
 retrieveAllTerrainNames = () => {
-    console.log(terrainName + " " + terrainPass);
     var terrains = JSON.parse(fs.readFileSync('./terrains.json'));
     return {names: Object.keys(terrains)};
 }

@@ -21,7 +21,7 @@ app.post('/getConfig', (req, res) => {
 
 app.get('/getAllTerrainNames', (req, res)=> {
     console.log("req received");
-    res.send(dbManager.retrieveTerrainNames());
+    res.send(dbManager.retrieveAllTerrainNames());
 });
 
 app.post('/getTerrainView', (req, res) => {

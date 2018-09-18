@@ -37,7 +37,7 @@ public class GetConfig : MonoBehaviour {
         UnityWebRequest www = UnityWebRequest.Post("http://localhost:5000/getConfig", form);
 		yield return www.Send();
 
-        if (www.isError)
+        if (www.isNetworkError)
         {
             Debug.Log(www.error);
         }
